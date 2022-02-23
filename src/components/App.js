@@ -138,17 +138,6 @@ function App() {
 
         <ImagePopup isOpen={isImagePopupOpen} card={selectedCard} onClose={closeAllPopups}/>
 
-
-        <div className="popup popup_del-card">
-          <div className="popup__container popup__del-container">
-            <button className="popup__submit-close" type="button"></button>
-            <form className="popup__form popup__del-image">
-              <h2 className="popup__title">Вы уверены?</h2>
-              <button className="popup__submit-save" type="submit">Да</button>
-            </form>
-          </div>
-        </div>
-
       </div>
     </div>
   );
