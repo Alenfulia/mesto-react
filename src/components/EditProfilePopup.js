@@ -18,7 +18,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser, onLoading  }) => {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser, onLoading  }) => {
           maxLength="40"
           className="popup__input"
           required
-          value={name}
+          value={ name || ''}
           onChange={handleNameChange}
         />
         <span id="name-error" className="popup__input-error"></span>
@@ -60,7 +60,7 @@ const EditProfilePopup = ({ isOpen, onClose, onUpdateUser, onLoading  }) => {
           maxLength="200"
           className="popup__input"
           required
-          value={description}
+          value={ description || ''}
           onChange={handleDescriptionChange}
         />
         <span id="info-error" className="popup__input-error"></span>

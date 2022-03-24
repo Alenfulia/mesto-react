@@ -1,26 +1,34 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 const AddPlacePopup = ({ isOpen, onClose, onAddPlace, onLoading }) => {
-    const [image, setImage] = useState('');
-    const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
+  const [description, setDescription] = useState('');
 
-    const handleImageChange = (event) => {
-        setImage(event.target.value)
-    };
+  useEffect(() => {
+    setImage('');
+    setDescription('');
+  }, [isOpen]);
 
-    const handleDescriptionChange = (event) => {
-        setDescription(event.target.value)
-    };
+  const handleImageChange = (event) => {
+    setImage(event.target.value)
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value)
+  };
 
-        onAddPlace({
-            name: description,
-            link: image
-        });
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    onAddPlace({
+      name: description,
+      link: image
+      });
+
+    event.target.reset();
+  };
 
     return (
       <PopupWithForm
